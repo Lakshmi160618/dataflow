@@ -101,4 +101,9 @@ gs://source_bucket_lct_projct/260324-SessionOne.txt
 
 pubsub - msg - payload - python read - print - json extraction - gcs uri --
 
- 
+
+
+The run command for this job from cloud shell:
+-----------------------------------------------
+python /home/gcpcloud305/dev_folder/dataflow-final.py --streaming
+
