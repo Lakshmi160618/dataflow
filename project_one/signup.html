@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up / Log In</title>
+</head>
+<body>
+    <h1>Sign Up / Log In</h1>
+    <form id="signup_login_form" action="/signup_login" method="post">
+        <input type="radio" id="existing_customer" name="customer_type" value="existing">
+        <label for="existing_customer">Existing Customer</label><br>
+        <input type="radio" id="new_customer" name="customer_type" value="new" checked>
+        <label for="new_customer">New Customer</label><br><br>
+
+        <div id="existing_user_fields" style="display: none;">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br><br>
+        </div>
+
+        <div id="new_user_fields">
+            <label for="firstname">First Name:</label><br>
+            <input type="text" id="firstname" name="firstname"><br>
+            <label for="lastname">Last Name:</label><br>
+            <input type="text" id="lastname" name="lastname"><br>
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" name="dob"><br>
+            <label for="phone">Phone Number:</label><br>
+            <input type="tel" id="phone" name="phone"><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br><br>
+        </div>
+        
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        document.getElementById('existing_customer').addEventListener('change', function() {
+            if (this.checked) {
+                document.getElementById('existing_user_fields').style.display = 'block';
+                document.getElementById('new_user_fields').style.display = 'none';
+            }
+        });
+
+        document.getElementById('new_customer').addEventListener('change', function() {
+            if (this.checked) {
+                document.getElementById('existing_user_fields').style.display = 'none';
+                document.getElementById('new_user_fields').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
