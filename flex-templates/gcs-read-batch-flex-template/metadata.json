@@ -1,0 +1,15 @@
+{
+    "name": "Getting started Python flex template",
+    "description": "An example flex template for Python.",
+    "parameters": [
+      {
+        "name": "input",
+        "label": "Input location",
+        "helpText": "The path and filename prefix for reading input files. Example: gs://your-bucket/your-path",
+        "regexes": [
+          "^gs:\\/\\/[^\\n\\r]+$"
+        ]
+      }
+    ]
+  }
+  
