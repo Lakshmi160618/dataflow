@@ -30,3 +30,19 @@ gcloud dataflow flex-template run "flex-`date +%Y%m%d-%H%M%S`" \
     --parameters output="gs://$BUCKET/output-"
 What's next?
 For more information about building and running flex templates, see 📝 Use Flex Templates.
+
+
+Extra-info:
+gcloud dataflow flex-template build gs://flex-template-bucket-demo2/second-pipeline-py.json \
+ --image-gcr-path "us-central1-docker.pkg.dev/lct-dev-416808/flex-repo-to-mv-gcs-gcs/second-pipeline-python:latest" \
+ --sdk-language "PYTHON" \
+ --flex-template-base-image "PYTHON3" \
+ --metadata-file "metadata.json" \
+ --py-path "." \
+ --env "FLEX_TEMPLATE_PYTHON_PY_FILE=second-pipeline.py" \
+ --env "FLEX_TEMPLATE_PYTHON_REQUIREMENTS_FILE=requirements.txt"
+ 
+gcloud dataflow flex-template run "second-pipeline-$(date +%Y%m%d-%H%M%S)" \
+ --template-file-gcs-location "gs://flex-template-bucket-demo2/second-pipeline-py.json" \
+ --parameters input="gs://source_bucket_lct_projct/temparature.csv",output="gs://target_bucket_lct_projct/outputhere-" \
+ --region "us-central1"
