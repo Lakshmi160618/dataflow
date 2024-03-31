@@ -1,0 +1,23 @@
+{
+    "_comment": "This file allows you to optionally add additional metadata for the Flex Template, its parameters and their validation rules.",
+    "name": "File Copier",
+    "description": "A Flex Template that copies files from an input bucket to an output bucket.",
+    "parameters": [
+      {
+        "name": "input",
+        "label": "Input bucket",
+        "helpText": "The path to the input bucket. Example: gs://your-input-bucket",
+        "regexes": [
+          "^gs:\\/\\/[^\\n\\r]+$"
+        ]
+      },
+      {
+        "name": "output",
+        "label": "Output bucket",
+        "helpText": "The path to the output bucket. Example: gs://your-output-bucket",
+        "regexes": [
+          "^gs:\\/\\/[^\\n\\r]+$"
+        ]
+      }
+    ]
+}
